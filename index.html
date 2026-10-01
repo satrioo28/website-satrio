@@ -1,18 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Website Saya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ruang Lingkup dan Konsep AI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* CARD */
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            color: #1d4ed8;
+            margin-bottom: 15px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background: #eff6ff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .box h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        /* BUTTON */
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        /* HASIL JAVASCRIPT */
+        #fakta {
+            margin-top: 20px;
+            padding: 15px;
+            background: #dbeafe;
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* KUIS */
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #f8fafc;
+            color: #1f2937;
+            border: 1px solid #cbd5e1;
+            margin-top: 10px;
+        }
+
+        .quiz-option:hover {
+            background: #dbeafe;
+        }
+
+        #hasilKuis {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        /* HP */
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Halo Satrio!</h1>
+    <!-- HEADER -->
+    <header>
+        <h1>🤖 Ruang Lingkup dan Konsep AI</h1>
+        <p>Mengenal Artificial Intelligence dan perkembangannya</p>
+    </header>
 
-    <p>Ini adalah website HTML pertama saya.</p>
 
-    <button onclick="sapa()">Klik Saya</button>
+    <div class="container">
 
-    <p id="hasil"></p>
+        <!-- PENGERTIAN AI -->
+        <div class="card">
+            <h2>🤖 Apa itu Artificial Intelligence?</h2>
 
+            <p>
+                Artificial Intelligence (AI) atau kecerdasan buatan
+                adalah teknologi yang memungkinkan komputer atau mesin
+                melakukan tugas yang biasanya membutuhkan kecerdasan manusia.
+            </p>
+
+            <button onclick="tampilkanFakta()">
+                💡 Tampilkan Fakta AI
+            </button>
+
+            <div id="fakta"></div>
+        </div>
+
+
+        <!-- RUANG LINGKUP -->
+        <div class="card">
+            <h2>🧠 Ruang Lingkup AI</h2>
+
+            <div class="grid">
+
+                <div class="box">
+                    <h3>Machine Learning</h3>
+                    <p>
+                        Sistem belajar dari data untuk menemukan pola
+                        dan membuat prediksi.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>NLP</h3>
+                    <p>
+                        Teknologi yang memungkinkan komputer memahami
+                        dan memproses bahasa manusia.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>Computer Vision</h3>
+                    <p>
+                        Teknologi yang memungkinkan komputer memahami
+                        informasi dari gambar atau video.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- CARA KERJA AI -->
+        <div class="card">
+            <h2>⚙️ Bagaimana AI Bekerja?</h2>
+
+            <p>
+                Secara sederhana, AI memanfaatkan data untuk mempelajari
+                pola dan menghasilkan suatu output.
+            </p>
+
+            <br>
+
+            <p>
+                <b>Data → Training → Model AI → Input → Output</b>
+            </p>
+        </div>
+
+
+        <!-- KUIS -->
+        <div class="card">
+            <h2>❓ Kuis Singkat AI</h2>
+
+            <p>
+                Manakah yang merupakan contoh teknologi AI?
+            </p>
+
+            <button class="quiz-option" onclick="jawaban(false)">
+                A. Kalkulator biasa
+            </button>
+
+            <button class="quiz-option" onclick="jawaban(true)">
+                B. Sistem pengenalan wajah
+            </button>
+
+            <button class="quiz-option" onclick="jawaban(false)">
+                C. Lampu biasa
+            </button>
+
+            <p id="hasilKuis"></p>
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Website AI sederhana | Dibuat dengan HTML, CSS & JavaScript</p>
+        <p>© 2026 Satrio</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
