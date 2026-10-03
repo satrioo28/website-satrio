@@ -1,30 +1,42 @@
-function tampilkanFakta() {
+function cariMateri() {
 
-    const fakta = document.getElementById("fakta");
+    let input = document.getElementById("searchInput");
 
-    fakta.style.display = "block";
+    let kata = input.value.toLowerCase();
 
-    fakta.innerHTML =
-        "💡 Fakta: AI dapat digunakan dalam berbagai bidang seperti kesehatan, transportasi, pendidikan, keuangan, dan industri.";
+    let bagian = document.querySelectorAll("section");
+
+    bagian.forEach(function(section) {
+
+        let isi = section.innerText.toLowerCase();
+
+        if (isi.includes(kata)) {
+            section.style.display = "";
+        } else {
+            section.style.display = "none";
+        }
+
+    });
+
+}
+function animasiScroll() {
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        let posisi = card.getBoundingClientRect().top;
+
+        let tinggiLayar = window.innerHeight;
+
+        if (posisi < tinggiLayar - 100) {
+            card.classList.add("show");
+        }
+
+    });
+
 }
 
+window.addEventListener("scroll", animasiScroll);
 
-function jawaban(benar) {
-
-    const hasil = document.getElementById("hasilKuis");
-
-    if (benar) {
-
-        hasil.innerHTML =
-            "✅ Jawaban benar! Computer Vision dapat digunakan untuk mengenali wajah dan menganalisis gambar.";
-
-        hasil.style.color = "green";
-
-    } else {
-
-        hasil.innerHTML =
-            "❌ Jawaban kurang tepat. Coba pilih jawaban lainnya.";
-
-        hasil.style.color = "red";
-    }
-}
+animasiScroll();

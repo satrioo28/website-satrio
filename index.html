@@ -1,264 +1,2139 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ruang Lingkup dan Konsep AI</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Satrio - Belajar AI</title>
+
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
+
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        /* HEADER */
-        header {
-            background: linear-gradient(135deg, #172554, #2563eb);
+            background: #0b1020;
             color: white;
-            padding: 60px 20px;
-            text-align: center;
+            line-height: 1.7;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+
+        /* =====================
+           NAVBAR
+        ===================== */
+
+        nav {
+            background: #111936;
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            border-bottom: 1px solid #252b50;
+
+            backdrop-filter: blur(10px);
         }
 
-        header p {
-            font-size: 18px;
-        }
 
-        /* CONTAINER */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        /* CARD */
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .card h2 {
-            color: #1d4ed8;
-            margin-bottom: 15px;
-        }
-
-        /* GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .box {
-            background: #eff6ff;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .box h3 {
-            color: #1d4ed8;
-            margin-bottom: 10px;
-        }
-
-        /* BUTTON */
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 15px;
-        }
-
-        button:hover {
-            background: #1d4ed8;
-        }
-
-        /* HASIL JAVASCRIPT */
-        #fakta {
-            margin-top: 20px;
-            padding: 15px;
-            background: #dbeafe;
-            border-radius: 10px;
-            display: none;
-        }
-
-        /* KUIS */
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            background: #f8fafc;
-            color: #1f2937;
-            border: 1px solid #cbd5e1;
-            margin-top: 10px;
-        }
-
-        .quiz-option:hover {
-            background: #dbeafe;
-        }
-
-        #hasilKuis {
-            margin-top: 15px;
+        .logo {
+            font-size: 25px;
             font-weight: bold;
+            color: #a78bfa;
+
+            transition: 0.3s;
         }
 
-        /* FOOTER */
-        footer {
-            background: #172554;
-            color: white;
+
+        .logo:hover {
+            transform: scale(1.08);
+        }
+
+
+        nav a {
+            color: #ddd6fe;
+            text-decoration: none;
+            margin-left: 18px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+
+        /* =====================
+           HERO
+        ===================== */
+
+        .hero {
+            min-height: 85vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             text-align: center;
-            padding: 25px;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b1020,
+                    #1e1b4b,
+                    #4c1d95
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            background: #7c3aed;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            opacity: 0.25;
+
+            animation: bergerak 6s infinite alternate;
+        }
+
+
+        @keyframes bergerak {
+
+            from {
+                transform: translate(-150px, -50px);
+            }
+
+            to {
+                transform: translate(150px, 80px);
+            }
+
+        }
+
+
+        .hero > div {
+            position: relative;
+            z-index: 2;
+
+            animation: muncul 1.2s ease;
+        }
+
+
+        @keyframes muncul {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .hero h1 {
+            font-size: 58px;
+            color: #c4b5fd;
+            margin-bottom: 20px;
+
+            animation: munculdaribawah 1s ease;
+        }
+
+
+        @keyframes judul {
+
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+
+            max-width: 750px;
+            margin: auto;
+
+            animation: munculDariBawah 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
+
+
+        .button {
+    display: inline-block;
+
+    margin-top: 30px;
+    padding: 14px 30px;
+
+    background: #7c3aed;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    animation: munculDariBawah 1s ease 0.6s;
+    animation-fill-mode: both;
+}
+
+
+        .button:hover {
+            background: #2563eb;
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 30px rgba(37, 99, 235, 0.4);
+        }
+
+
+        /* =====================
+           SECTION
+        ===================== */
+
+        section {
+            padding: 80px 8%;
+        }
+
+
+        section h2 {
+            text-align: center;
+
+            font-size: 38px;
+
+            color: #a78bfa;
+
+            margin-bottom: 20px;
+        }
+
+
+        .intro {
+            text-align: center;
+
+            max-width: 800px;
+
+            margin: 0 auto 40px;
+
+            color: #cbd5e1;
+        }
+
+
+        /* =====================
+           ANIMASI SCROLL
+        ===================== */
+
+        .card,
+        .timeline-item,
+        .question {
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            transition: 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+
+        .card.show,
+        .timeline-item.show,
+        .question.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================
+           CARD
+        ===================== */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        .card {
+            background: #151d3b;
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            border: 1px solid #312e81;
+
+            transition:
+                transform 0.3s,
+                border-color 0.3s,
+                box-shadow 0.3s;
+        }
+
+
+        .card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+
+        .card h3 {
+            color: #93c5fd;
+
+            margin-bottom: 12px;
+        }
+
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+
+        /* =====================
+           FLOW AI
+        ===================== */
+
+        .flow {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
             margin-top: 30px;
         }
 
-        /* HP */
-        @media (max-width: 700px) {
-            header h1 {
+
+        .flow-box {
+            background: #312e81;
+
+            padding: 15px 22px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .flow-box:hover {
+            transform: translateY(-5px);
+
+            background: #4c1d95;
+
+            box-shadow:
+                0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+
+
+        .arrow {
+            color: #a78bfa;
+
+            font-size: 25px;
+
+            animation: panah 1.5s infinite;
+        }
+
+
+        @keyframes panah {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* =====================
+           SEJARAH
+        ===================== */
+
+        .timeline {
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+
+        .timeline-item {
+            background: #151d3b;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border-left: 5px solid #7c3aed;
+
+            border-radius: 10px;
+
+            transition:
+                0.3s,
+                border-color 0.3s;
+        }
+
+
+        .timeline-item:hover {
+            transform: translateX(8px);
+
+            border-color: #60a5fa;
+
+            box-shadow:
+                0 10px 25px rgba(96, 165, 250, 0.15);
+        }
+
+
+        .timeline-item h3 {
+            color: #c4b5fd;
+
+            margin-bottom: 8px;
+        }
+
+
+        .timeline-item p {
+            color: #cbd5e1;
+        }
+
+
+        /* =====================
+           KUIS
+        ===================== */
+
+        .quiz-box {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .question {
+            background: #151d3b;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            border-radius: 16px;
+
+            border: 1px solid #312e81;
+        }
+
+
+        .question h3 {
+            color: #c4b5fd;
+
+            margin-bottom: 20px;
+        }
+
+
+        .question label {
+            display: block;
+
+            background: #1e2748;
+
+            padding: 15px;
+
+            margin: 10px 0;
+
+            border-radius: 10px;
+
+            color: #e2e8f0;
+
+            cursor: pointer;
+
+            border: 1px solid transparent;
+
+            transition: 0.3s;
+        }
+
+
+        .question label:hover {
+            background: #312e81;
+
+            border-color: #8b5cf6;
+
+            transform: translateX(5px);
+        }
+
+
+        .question input {
+            margin-right: 10px;
+
+            accent-color: #8b5cf6;
+        }
+
+
+        .correct {
+            background: #14532d !important;
+
+            border-color: #22c55e !important;
+        }
+
+
+        .wrong {
+            background: #7f1d1d !important;
+
+            border-color: #ef4444 !important;
+        }
+
+
+        .quiz-button {
+            display: block;
+
+            margin: 30px auto;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #7c3aed;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .quiz-button:hover {
+            background: #2563eb;
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+
+        #hasilKuis {
+            text-align: center;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #a78bfa;
+
+            margin-top: 20px;
+
+            animation: hasil 0.5s ease;
+        }
+
+
+        @keyframes hasil {
+
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* =====================
+           SUMBER
+        ===================== */
+
+        .source-list {
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+
+        .source-list a {
+            display: block;
+
+            background: #151d3b;
+
+            color: #93c5fd;
+
+            padding: 15px;
+
+            margin-bottom: 12px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            border: 1px solid #312e81;
+
+            transition: 0.3s;
+        }
+
+
+        .source-list a:hover {
+            background: #1e1b4b;
+
+            transform: translateX(8px);
+
+            border-color: #8b5cf6;
+        }
+
+
+        /* =====================
+           TOMBOL KE ATAS
+        ===================== */
+
+        #keAtas {
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #7c3aed;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 200;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 20px rgba(124, 58, 237, 0.4);
+        }
+
+
+        #keAtas:hover {
+            background: #2563eb;
+
+            transform: translateY(-5px);
+        }
+
+
+        /* =====================
+           FOOTER
+        ===================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px;
+
+            background: #070b18;
+
+            color: #94a3b8;
+        }
+
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* =====================
+           HP
+        ===================== */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav a {
+                margin: 5px;
+
+                font-size: 14px;
+            }
+
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+
+            .hero p {
+                font-size: 17px;
+            }
+
+
+            section {
+                padding: 60px 5%;
+            }
+
+
+            section h2 {
                 font-size: 30px;
             }
 
-            .grid {
-                grid-template-columns: 1fr;
+
+            .flow {
+                flex-direction: column;
             }
+
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+
+            .arrow {
+                animation: none;
+            }
+
+
+            #keAtas {
+                right: 15px;
+
+                bottom: 15px;
+            }
+
         }
+        @keyframes munculDariBawah {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
     </style>
+
 </head>
 
-<body>
-
-    <!-- HEADER -->
-    <header>
-        <h1>🤖 Ruang Lingkup dan Konsep AI</h1>
-        <p>Mengenal Artificial Intelligence dan perkembangannya</p>
-    </header>
 
 
-    <div class="container">
 
-        <!-- PENGERTIAN AI -->
-        <div class="card">
-            <h2>🤖 Apa itu Artificial Intelligence?</h2>
 
-            <p>
-                Artificial Intelligence (AI) atau kecerdasan buatan
-                adalah teknologi yang memungkinkan komputer atau mesin
-                melakukan tugas yang biasanya membutuhkan kecerdasan manusia.
-            </p>
+    <!-- =====================
+         NAVBAR
+    ===================== -->
 
-            <button onclick="tampilkanFakta()">
-                💡 Tampilkan Fakta AI
-            </button>
+    <nav>
 
-            <div id="fakta"></div>
+        <div class="logo">
+            🤖 Satrio
         </div>
 
 
-        <!-- RUANG LINGKUP -->
-        <div class="card">
-            <h2>🧠 Ruang Lingkup AI</h2>
+        <div>
 
-            <div class="grid">
+            <a href="#pengertian">
+                Pengertian
+            </a>
 
-                <div class="box">
-                    <h3>Machine Learning</h3>
-                    <p>
-                        Sistem belajar dari data untuk menemukan pola
-                        dan membuat prediksi.
-                    </p>
-                </div>
+            <a href="#penerapan">
+                Penerapan
+            </a>
 
-                <div class="box">
-                    <h3>NLP</h3>
-                    <p>
-                        Teknologi yang memungkinkan komputer memahami
-                        dan memproses bahasa manusia.
-                    </p>
-                </div>
+            <a href="#ruang">
+                Ruang Lingkup
+            </a>
 
-                <div class="box">
-                    <h3>Computer Vision</h3>
-                    <p>
-                        Teknologi yang memungkinkan komputer memahami
-                        informasi dari gambar atau video.
-                    </p>
-                </div>
+            <a href="#konsep">
+                Konsep AI
+            </a>
+
+            <a href="#sejarah">
+                Sejarah
+            </a>
+
+            <a href="#kuis">
+                Kuis
+            </a>
+
+            <a href="#kesimpulan">
+                Kesimpulan
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================
+         HERO
+    ===================== -->
+
+    <section class="hero">
+
+        <div>
+
+            <h1>
+                Belajar Artificial Intelligence
+            </h1>
+
+
+            <p>
+                Mengenal pengertian, ruang lingkup,
+                konsep dasar, contoh penerapan,
+                dan sejarah perkembangan
+                Artificial Intelligence.
+            </p>
+
+
+            <a href="#pengertian" class="button">
+                Mulai Belajar 🚀
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         PENGERTIAN
+    ===================== -->
+    <div style="text-align:center; margin-bottom:30px;">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Cari materi AI..."
+        onkeyup="cariMateri()"
+        style="
+            width:80%;
+            max-width:600px;
+            padding:15px 20px;
+            border-radius:12px;
+            border:1px solid #312e81;
+            background:#151d3b;
+            color:white;
+            font-size:16px;
+            outline:none;
+        "
+    >
+
+</div>
+
+    <section id="pengertian">
+
+        <h2>
+            🤖 Pengertian Artificial Intelligence
+        </h2>
+
+
+        <p class="intro">
+
+            Artificial Intelligence atau kecerdasan buatan
+            adalah teknologi yang memungkinkan komputer
+            atau mesin melakukan tugas yang membutuhkan
+            kemampuan seperti kecerdasan manusia.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    🧠 Belajar
+                </h3>
+
+                <p>
+                    AI dapat mempelajari pola dari data
+                    untuk membantu menghasilkan prediksi
+                    atau keputusan.
+                </p>
 
             </div>
+
+
+            <div class="card">
+
+                <h3>
+                    👁️ Mengenali
+                </h3>
+
+                <p>
+                    AI dapat mengenali gambar, suara,
+                    wajah, dan berbagai pola.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💬 Memahami Bahasa
+                </h3>
+
+                <p>
+                    AI dapat memproses bahasa manusia
+                    menggunakan Natural Language Processing.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    ⚡ Membantu Keputusan
+                </h3>
+
+                <p>
+                    AI dapat membantu manusia menganalisis
+                    informasi dan menghasilkan prediksi.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         PENERAPAN
+    ===================== -->
+
+    <section id="penerapan">
+
+        <h2>
+            🌎 Contoh Penerapan AI
+        </h2>
+
+
+        <p class="intro">
+
+            Artificial Intelligence telah digunakan
+            dalam berbagai aktivitas sehari-hari.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    🎙️ Asisten Virtual
+                </h3>
+
+                <p>
+                    AI dapat memahami perintah suara
+                    dan memberikan respons kepada pengguna.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    📷 Kamera Ponsel
+                </h3>
+
+                <p>
+                    AI membantu kamera mengenali objek,
+                    wajah, dan kondisi pencahayaan.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    📱 Media Sosial
+                </h3>
+
+                <p>
+                    AI dapat memberikan rekomendasi
+                    konten berdasarkan aktivitas pengguna.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🛒 E-Commerce
+                </h3>
+
+                <p>
+                    AI dapat memberikan rekomendasi
+                    produk kepada pengguna.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🎬 Streaming
+                </h3>
+
+                <p>
+                    AI memberikan rekomendasi film,
+                    musik, atau video.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🗺️ Google Maps
+                </h3>
+
+                <p>
+                    AI membantu memperkirakan rute
+                    dan waktu perjalanan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         RUANG LINGKUP
+    ===================== -->
+
+    <section id="ruang">
+
+        <h2>
+            🌐 Ruang Lingkup AI
+        </h2>
+
+
+        <p class="intro">
+
+            AI memiliki ruang lingkup yang luas
+            dan digunakan dalam berbagai bidang.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    🏥 Kesehatan
+                </h3>
+
+                <p>
+                    AI membantu menganalisis data kesehatan
+                    dan mendukung tenaga medis.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💰 Keuangan
+                </h3>
+
+                <p>
+                    AI dapat menganalisis transaksi
+                    dan mendeteksi pola mencurigakan.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🎓 Pendidikan
+                </h3>
+
+                <p>
+                    AI dapat membantu proses pembelajaran
+                    dan memberikan rekomendasi materi.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🗣️ NLP
+                </h3>
+
+                <p>
+                    Natural Language Processing digunakan
+                    untuk memproses bahasa manusia.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    👁️ Computer Vision
+                </h3>
+
+                <p>
+                    Computer Vision digunakan untuk
+                    menganalisis gambar dan video.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🤖 Robotics
+                </h3>
+
+                <p>
+                    AI dapat digunakan pada robot
+                    untuk melakukan berbagai tugas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         KONSEP
+    ===================== -->
+
+    <section id="konsep">
+
+        <h2>
+            ⚙️ Konsep Dasar AI
+        </h2>
+
+
+        <p class="intro">
+
+            AI menggunakan data, algoritma,
+            dan model untuk menghasilkan output.
+
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    📊 Data
+                </h3>
+
+                <p>
+                    Data digunakan sebagai bahan
+                    untuk pembelajaran AI.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    ⚙️ Algoritma
+                </h3>
+
+                <p>
+                    Algoritma merupakan langkah
+                    untuk mengolah data.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🧠 Model
+                </h3>
+
+                <p>
+                    Model merupakan hasil pembelajaran
+                    dari data.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💻 Input
+                </h3>
+
+                <p>
+                    Input merupakan informasi yang
+                    diberikan kepada sistem AI.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    📤 Output
+                </h3>
+
+                <p>
+                    Output adalah hasil yang diberikan
+                    setelah proses AI.
+                </p>
+
+            </div>
+
         </div>
 
 
-        <!-- CARA KERJA AI -->
+        <h3 style="
+            text-align:center;
+            margin-top:50px;
+            color:#c4b5fd;
+        ">
+            Alur Dasar AI
+        </h3>
+
+
+        <div class="flow">
+
+            <div class="flow-box">
+                📊 Data
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-box">
+                ⚙️ Algoritma
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-box">
+                🧠 Model
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-box">
+                💻 Input
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+            <div class="flow-box">
+                📤 Output
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         SEJARAH
+    ===================== -->
+
+    <section id="sejarah">
+
+        <h2>
+            🕐 Sejarah Perkembangan AI
+        </h2>
+
+
+        <p class="intro">
+
+            Perkembangan AI berlangsung melalui
+            berbagai tahap hingga menjadi teknologi
+            modern seperti sekarang.
+
+        </p>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <h3>
+                    1900 — Dasar Matematika
+                </h3>
+
+                <p>
+                    Perkembangan matematika dan logika
+                    menjadi salah satu dasar perkembangan
+                    ilmu komputer dan AI.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1930 — Turing Machine
+                </h3>
+
+                <p>
+                    Alan Turing memperkenalkan konsep
+                    Turing Machine yang menjadi dasar
+                    penting dalam teori komputasi.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1950 — Perkembangan Awal AI
+                </h3>
+
+                <p>
+                    Penelitian mengenai kecerdasan mesin
+                    mulai berkembang dengan berbagai
+                    tokoh seperti Alan Turing dan
+                    Marvin Minsky.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1956 — Istilah Artificial Intelligence
+                </h3>
+
+                <p>
+                    Istilah Artificial Intelligence
+                    diperkenalkan secara formal dalam
+                    Dartmouth Conference.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1960 — ELIZA
+                </h3>
+
+                <p>
+                    ELIZA menjadi salah satu program
+                    komputer awal yang dapat melakukan
+                    percakapan sederhana dengan manusia.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1972 — Shakey
+                </h3>
+
+                <p>
+                    Shakey merupakan salah satu robot
+                    yang dapat melakukan perencanaan
+                    dan bergerak berdasarkan lingkungan.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1980 — Expert System
+                </h3>
+
+                <p>
+                    Perkembangan AI meliputi expert system,
+                    genetic algorithm, fuzzy logic,
+                    dan machine learning.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    1990 — IBM Deep Blue
+                </h3>
+
+                <p>
+                    IBM Deep Blue terkenal setelah
+                    mengalahkan juara dunia catur
+                    Garry Kasparov pada tahun 1997.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    2000 — Big Data
+                </h3>
+
+                <p>
+                    Big data, cloud computing,
+                    dan kemampuan komputasi membantu
+                    perkembangan AI.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    2010 — Sekarang
+                </h3>
+
+                <p>
+                    AI berkembang pesat melalui
+                    deep learning, NLP, Computer Vision,
+                    chatbot, dan Generative AI.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         KUIS
+    ===================== -->
+
+    <section id="kuis">
+
+        <h2>
+            🧠 Kuis Artificial Intelligence
+        </h2>
+
+
+        <p class="intro">
+
+            Yuk, uji pemahaman kamu tentang
+            materi Artificial Intelligence!
+
+        </p>
+
+
+        <div class="quiz-box">
+
+
+            <div class="question">
+
+                <h3>
+                    1. Apa yang dimaksud dengan Artificial Intelligence?
+                </h3>
+
+
+                <label>
+                    <input type="radio" name="q1" value="0">
+                    Teknologi untuk menyimpan file
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q1" value="1">
+                    Teknologi yang memungkinkan mesin melakukan
+                    tugas yang membutuhkan kecerdasan manusia
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q1" value="0">
+                    Teknologi untuk membuat kabel
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q1" value="0">
+                    Teknologi untuk mencetak dokumen
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <h3>
+                    2. Manakah contoh penerapan AI?
+                </h3>
+
+
+                <label>
+                    <input type="radio" name="q2" value="0">
+                    Meja
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q2" value="0">
+                    Kabel
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q2" value="1">
+                    Sistem rekomendasi aplikasi streaming
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q2" value="0">
+                    Buku
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <h3>
+                    3. Apa yang digunakan AI untuk belajar?
+                </h3>
+
+
+                <label>
+                    <input type="radio" name="q3" value="1">
+                    Data
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q3" value="0">
+                    Meja
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q3" value="0">
+                    Kursi
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q3" value="0">
+                    Lampu
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <h3>
+                    4. Teknologi AI yang memproses
+                    bahasa manusia disebut?
+                </h3>
+
+
+                <label>
+                    <input type="radio" name="q4" value="0">
+                    Computer Vision
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q4" value="1">
+                    Natural Language Processing
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q4" value="0">
+                    Robotics
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q4" value="0">
+                    Database
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <h3>
+                    5. Teknologi AI yang berhubungan
+                    dengan gambar disebut?
+                </h3>
+
+
+                <label>
+                    <input type="radio" name="q5" value="1">
+                    Computer Vision
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q5" value="0">
+                    Natural Language Processing
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q5" value="0">
+                    Database
+                </label>
+
+
+                <label>
+                    <input type="radio" name="q5" value="0">
+                    Cloud Computing
+                </label>
+
+            </div>
+
+
+            <button
+                class="quiz-button"
+                onclick="cekKuis()">
+
+                Periksa Jawaban 🎯
+
+            </button>
+
+
+            <div id="hasilKuis"></div>
+
+
+            <button
+                class="quiz-button"
+                id="tombolUlangi"
+                onclick="ulangKuis()"
+                style="display:none;">
+
+                🔄 Ulangi Kuis
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================
+         KESIMPULAN
+    ===================== -->
+
+    <section id="kesimpulan">
+
+        <h2>
+            📌 Kesimpulan
+        </h2>
+
+
         <div class="card">
-            <h2>⚙️ Bagaimana AI Bekerja?</h2>
 
             <p>
-                Secara sederhana, AI memanfaatkan data untuk mempelajari
-                pola dan menghasilkan suatu output.
+
+                Artificial Intelligence atau kecerdasan
+                buatan merupakan teknologi yang memungkinkan
+                mesin melakukan tugas yang membutuhkan
+                kemampuan seperti kecerdasan manusia.
+
+                <br><br>
+
+                AI memiliki ruang lingkup yang luas seperti
+                Machine Learning, Deep Learning, Natural
+                Language Processing, Computer Vision,
+                Robotics, dan Expert System.
+
+                <br><br>
+
+                AI telah digunakan dalam berbagai bidang
+                seperti kesehatan, pendidikan, keuangan,
+                transportasi, media sosial, e-commerce,
+                dan hiburan.
+
             </p>
 
-            <br>
-
-            <p>
-                <b>Data → Training → Model AI → Input → Output</b>
-            </p>
         </div>
 
+    </section>
 
-        <!-- KUIS -->
-        <div class="card">
-            <h2>❓ Kuis Singkat AI</h2>
 
-            <p>
-                Manakah yang merupakan contoh teknologi AI?
-            </p>
 
-            <button class="quiz-option" onclick="jawaban(false)">
-                A. Kalkulator biasa
-            </button>
+    <!-- =====================
+         SUMBER
+    ===================== -->
 
-            <button class="quiz-option" onclick="jawaban(true)">
-                B. Sistem pengenalan wajah
-            </button>
+    <section>
 
-            <button class="quiz-option" onclick="jawaban(false)">
-                C. Lampu biasa
-            </button>
+        <h2>
+            📚 Sumber Pembelajaran
+        </h2>
 
-            <p id="hasilKuis"></p>
+
+        <div class="source-list">
+
+            <a
+                href="https://www.ruangguru.com/blog/apa-itu-artificial-intelligence"
+                target="_blank">
+
+                Ruangguru — Apa Itu Artificial Intelligence?
+
+            </a>
+
+
+            <a
+                href="https://binus.ac.id/malang/2025/06/inilah-12-contoh-penggunaan-artificial-intelligence-dalam-keseharian/"
+                target="_blank">
+
+                BINUS — Contoh Penggunaan Artificial Intelligence
+
+            </a>
+
+
+            <a
+                href="https://www.qubisa.com/article/6-konsep-dasar-ai-yang-menjadi-fondasi-utama"
+                target="_blank">
+
+                QuBisa — Konsep Dasar AI
+
+            </a>
+
+
+            <a
+                href="https://binus.ac.id/bandung/2025/08/sejarah-lengkap-kecerdasan-buatan-dari-masa-ke-masa/"
+                target="_blank">
+
+                BINUS — Sejarah Lengkap AI
+
+            </a>
+
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =====================
+         FOOTER
+    ===================== -->
+
     <footer>
-        <p>Website AI sederhana | Dibuat dengan HTML, CSS & JavaScript</p>
-        <p>© 2026 Satrio</p>
+
+        <p>
+            🤖 Satrio
+        </p>
+
+        <p>
+            Website Pembelajaran Artificial Intelligence
+        </p>
+
+        <p>
+            © 2026
+        </p>
+
     </footer>
 
 
-    <!-- JAVASCRIPT -->
+
+    <!-- =====================
+         TOMBOL KE ATAS
+    ===================== -->
+
+    <button id="keAtas" onclick="keAtas()">
+        ↑
+    </button>
+
+
+
+    <!-- =====================
+         JAVASCRIPT
+    ===================== -->
+
+    <script>
+
+
+        /* =====================
+           KUIS
+        ===================== */
+
+        function cekKuis() {
+
+            let nilai = 0;
+
+            let semuaSoal =
+                document.querySelectorAll(".question");
+
+            let jawaban =
+                document.querySelectorAll(
+                    'input[type="radio"]:checked'
+                );
+
+
+            if (jawaban.length < semuaSoal.length) {
+
+                document.getElementById("hasilKuis").innerHTML =
+                    "⚠️ Jawab semua soal terlebih dahulu!";
+
+                return;
+
+            }
+
+
+            semuaSoal.forEach(function(soal) {
+
+                let pilihan =
+                    soal.querySelectorAll("label");
+
+
+                let dipilih =
+                    soal.querySelector(
+                        'input[type="radio"]:checked'
+                    );
+
+
+                pilihan.forEach(function(label) {
+
+                    label.classList.remove("correct");
+
+                    label.classList.remove("wrong");
+
+
+                    let input =
+                        label.querySelector("input");
+
+
+                    if (input.value === "1") {
+
+                        label.classList.add("correct");
+
+                    }
+
+                });
+
+
+                if (dipilih.value === "0") {
+
+                    dipilih.parentElement.classList.add("wrong");
+
+                }
+
+
+                if (dipilih.value === "1") {
+
+                    nilai++;
+
+                }
+
+            });
+
+
+            let skor = nilai * 20;
+
+
+            let pesan;
+
+
+            if (skor === 100) {
+
+                pesan =
+                    "🏆 Sempurna! Kamu sangat memahami materi AI!";
+
+            }
+
+            else if (skor >= 80) {
+
+                pesan =
+                    "🎉 Bagus sekali! Pemahaman kamu sudah baik.";
+
+            }
+
+            else if (skor >= 60) {
+
+                pesan =
+                    "👍 Lumayan! Coba pelajari kembali materinya.";
+
+            }
+
+            else {
+
+                pesan =
+                    "📚 Jangan menyerah! Baca kembali materi AI.";
+
+            }
+
+
+            document.getElementById("hasilKuis").innerHTML =
+
+                "📊 Nilai kamu: " +
+                skor +
+                "/100<br>" +
+
+                "✅ Jawaban benar: " +
+                nilai +
+                " dari " +
+                semuaSoal.length +
+                "<br>" +
+
+                pesan;
+
+
+            document.getElementById(
+                "tombolUlangi"
+            ).style.display = "block";
+
+        }
+
+
+
+        /* =====================
+           ULANGI KUIS
+        ===================== */
+
+        function ulangKuis() {
+
+            document
+                .querySelectorAll(
+                    'input[type="radio"]'
+                )
+                .forEach(function(input) {
+
+                    input.checked = false;
+
+                });
+
+
+            document
+                .querySelectorAll(
+                    ".question label"
+                )
+                .forEach(function(label) {
+
+                    label.classList.remove("correct");
+
+                    label.classList.remove("wrong");
+
+                });
+
+
+            document.getElementById(
+                "hasilKuis"
+            ).innerHTML = "";
+
+
+            document.getElementById(
+                "tombolUlangi"
+            ).style.display = "none";
+
+        }
+
+
+
+        /* =====================
+           ANIMASI SAAT SCROLL
+        ===================== */
+
+        const elemenAnimasi =
+            document.querySelectorAll(
+                ".card, .timeline-item, .question"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        elemenAnimasi.forEach(function(elemen) {
+
+            observer.observe(elemen);
+
+        });
+
+
+
+        /* =====================
+           TOMBOL KE ATAS
+        ===================== */
+
+        window.addEventListener(
+            "scroll",
+
+            function() {
+
+                let tombol =
+                    document.getElementById("keAtas");
+
+
+                if (window.scrollY > 500) {
+
+                    tombol.style.display = "block";
+
+                }
+
+                else {
+
+                    tombol.style.display = "none";
+
+                }
+
+            }
+
+        );
+
+
+        function keAtas() {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    </script>
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
